@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "4eab4add-9f7b-4ff2-a696-4ea761d07cc9",
+		"name": "blog backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25613427"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"Ashish113\",\r\n    \"email\":\"ashish12@test.com\",\r\n    \"password\":\"Mypass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/user/signup",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ashish12@test.com\",\r\n    \"password\":\"Mypass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/user/login",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add photo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFhYjNhYzYwMGNiMGI5ODRiYzU3N2QiLCJ1c2VyTmFtZSI6IkFzaGlzaDI5MyIsImVtYWlsIjoiYXNoaXNoMjkzLmRldkBnbWFpbC5jb20iLCJpYXQiOjE3MDE0MjcxMjcsImV4cCI6MTcwNDAxOTEyN30.B22aLdgVCStlOrnu0rsTLh4b2AXHJZ02lFMYibrIqoI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/ashis/Downloads/qr code (1).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{SERVER}}/user/addPhoto",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"user",
+								"addPhoto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTFhYjNhYzYwMGNiMGI5ODRiYzU3N2QiLCJ1c2VyTmFtZSI6IkFzaGlzaDI5MyIsImVtYWlsIjoiYXNoaXNoMjkzLmRldkBnbWFpbC5jb20iLCJpYXQiOjE3MDE0MjcxMjcsImV4cCI6MTcwNDAxOTEyN30.B22aLdgVCStlOrnu0rsTLh4b2AXHJZ02lFMYibrIqoI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/user/getUser?id=651ab3ac600cb0b984bc577d",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"user",
+								"getUser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "651ab3ac600cb0b984bc577d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjBiYWJjNjJlNjk1ZmZmYzU2MTYxNyIsInVzZXJOYW1lIjoiQXNoaXNoMTEzIiwiZW1haWwiOiJhc2hpc2gxMkB0ZXN0LmNvbSIsImlhdCI6MTcwMDgzODA3NiwiZXhwIjoxNzAwOTI0NDc2fQ.Jc4VOI_-r0R1uzyZVpMSEQtUhKz02U-T7vyhcIUF-K4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"First post from node hello\",\r\n    \"content\":\"This is the first post created by postman, I don't know It would work or not. Let's try.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/post",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/post?limit=10&userId=651ab3ac600cb0b984bc577d",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"post"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "demo",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "651ab3ac600cb0b984bc577d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/post/Random-demo-blog",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"post",
+								"Random-demo-blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/post/like/6565e00650555fc7b6aef4dd",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"post",
+								"like",
+								"6565e00650555fc7b6aef4dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postId\":\"6565e00650555fc7b6aef4dd\",\r\n    \"content\":\"A sample comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/post/comment",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"post",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTYwYmFiYzYyZTY5NWZmZmM1NjE2MTciLCJ1c2VyTmFtZSI6IkFzaGlzaDExMyIsImVtYWlsIjoiYXNoaXNoMTJAdGVzdC5jb20iLCJpYXQiOjE3MDEyMzQyNjgsImV4cCI6MTcwMzgyNjI2OH0.sq5SPT7Ccff_4PnnCK7e2xk5j1bvY-318nIn7C2CljA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postId\":\"6565e00650555fc7b6aef4dd\",\r\n    \"commentId\":\"6566c61ae8d0aaed71050406\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER}}/post/deleteComment",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"post",
+								"deleteComment"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTYwYmFiYzYyZTY5NWZmZmM1NjE2MTciLCJ1c2VyTmFtZSI6IkFzaGlzaDExMyIsImVtYWlsIjoiYXNoaXNoMTJAdGVzdC5jb20iLCJpYXQiOjE3MDEyMzgxOTUsImV4cCI6MTcwMzgzMDE5NX0.ZGlswaQTUuCcJCnQBPhPcE-iHSkTA2lyc4ZxFmbuGas",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "SERVER",
+			"value": "http://localhost:9000/api",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "SERVER",
+			"value": "https://bloggler-backend.vercel.app/api",
+			"type": "string"
+		}
+	]
+}
